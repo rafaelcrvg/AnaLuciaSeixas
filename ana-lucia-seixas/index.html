@@ -3,382 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Lúcia Seixas | Psicoterapia para Mulheres</title>
+    <title>Ana Lúcia Seixas - Psicóloga Clínica</title>
     
-    <!-- SEO & Metadata -->
-    <meta name="description" content="Psicoterapia particular para mulheres com Ana Lúcia Seixas. Especialista em Terapia do Esquema. Atendimento online e presencial.">
-    
-    <!-- Fonts: Playfair para elegância e Comfortaa para proximidade -->
+    <!-- Google Fonts para Comfortaa -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #e8b95f;
-            --light-green: #b5cec8;
-            --brand-green: #00695f;
-            --dark-blue: #2f3452;
-            --off-white: #fafafa;
-            --white: #ffffff;
-            --soft-blue: #a3c0d1;
-            --text-main: #3a3e5a;
+            --verde-primario: #00685b;
+            --mostarda: #e1b255;
+            --azul-escuro: #283152;
+            --azul-claro: #a8c5d3;
+            --branco: #ffffff;
             
-            --shadow-premium: 0 10px 40px rgba(47, 52, 82, 0.06);
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            --border-radius: 12px;
+            /* Fontes conforme identidade visual */
+            --font-titulo: 'Playfair Display', serif; /* Substituta para Billmake */
+            --font-texto: 'Comfortaa', sans-serif;
         }
 
-        /* Base System */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Comfortaa', cursive;
-            background-color: var(--white);
-            color: var(--text-main);
-            line-height: 1.8;
+            font-family: var(--font-texto);
             overflow-x: hidden;
         }
 
-        h1, h2, h3 { 
-            font-family: 'Playfair Display', serif; 
-            color: var(--dark-blue); 
+        /* --- PRIMEIRA DOBRA: HERO --- */
+        .hero {
+            background-color: var(--verde-primario);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 40px 8%;
+            color: var(--branco);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .logo-header {
+    margin-bottom: 35px;
+    z-index: 10;
+}
+
+.main-logo {
+    display: block;
+    width: 100%;
+    /* Ajuste o max-width abaixo para o tamanho visual que você deseja que o logo tenha */
+    max-width: 220px; 
+    height: auto;
+}
+
+/* Ajuste opcional para mobile para centralizar o logo se preferir */
+@media (max-width: 992px) {
+    .logo-header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+}
+
+        .badge {
+            border: 1px solid var(--mostarda);
+            border-radius: 50px;
+            padding: 8px 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            color: var(--mostarda);
+        }
+
+        .hero-titulo {
+            font-family: var(--font-titulo);
+            font-size: 2.8rem;
             line-height: 1.2;
-            letter-spacing: -0.01em;
+            margin-bottom: 30px;
+            font-weight: 400;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
-
-        /* Typography Refinement */
-        .section-label {
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 20px;
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            max-width: 500px;
         }
 
-        p { font-weight: 300; font-size: 1.05rem; margin-bottom: 20px; }
-
-        /* Premium Buttons */
         .btn-whatsapp {
+            background-color: var(--mostarda);
+            color: var(--azul-escuro);
+            text-decoration: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
-            background-color: var(--brand-green);
-            color: var(--white);
-            padding: 20px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0, 105, 95, 0.2);
-            border: 1px solid rgba(255,255,255,0.1);
+            gap: 10px;
+            transition: transform 0.3s ease;
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(0, 105, 95, 0.3);
-            background-color: #004d46;
+            transform: scale(1.05);
         }
 
-        .btn-whatsapp i { margin-right: 12px; font-size: 1.2rem; }
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
 
-        /* Sections */
-        section { padding: 120px 0; }
-        .bg-soft { background-color: #f8fbfa; }
-        .text-center { text-align: center; }
+        .hero-image-wrapper img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px;
+            /* Se tiver a imagem recortada em PNG */
+        }
 
-        /* Dobra 1: Hero */
-        .hero {
-            padding: 80px 0 140px;
+        /* --- SEGUNDA DOBRA: DEPOIMENTOS --- */
+        .testimonials {
+            padding: 100px 8%;
+            background-color: var(--branco);
             text-align: center;
-            background: linear-gradient(180deg, #f0f7f6 0%, #ffffff 100%);
         }
 
-        .hero-logo {
-            font-family: 'Playfair Display';
+        .testimonials-titulo {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.2rem;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 400;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 15px;
+            min-width: 340px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: left;
+            border: 1px solid #eee;
+        }
+
+        .card-header {
+            background-color: var(--azul-escuro);
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            color: var(--mostarda);
+        }
+
+        .card-header h4 {
             font-size: 1.2rem;
-            letter-spacing: 0.3em;
-            margin-bottom: 80px;
+            margin-bottom: 5px;
+        }
+
+        .card-header span {
             display: block;
+            font-size: 0.8rem;
+            color: var(--branco);
             opacity: 0.8;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 30px; color: var(--brand-green); font-weight: 700; }
-        .hero .subheadline { font-size: 1.4rem; color: var(--dark-blue); margin-bottom: 40px; max-width: 850px; margin-left: auto; margin-right: auto; line-height: 1.4; }
-        .hero .anchor-phrase { font-style: italic; color: var(--gold); font-size: 1.2rem; margin: 40px 0; display: block; }
-
-        /* Dobra 2: Prova Social */
-        .social-proof { background-color: var(--light-green); }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
-        .testimonial-card {
-            background: var(--white);
-            padding: 50px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-premium);
-            border: 1px solid rgba(0,0,0,0.02);
+        .card-body {
+            padding: 30px 20px;
         }
-        .testimonial-card p { font-style: italic; font-size: 1.1rem; color: var(--dark-blue); }
 
-        /* Dobra 3-5: Dor e Diagnóstico */
-        .pain-section { background-color: var(--dark-blue); color: var(--white); }
-        .pain-section h2 { color: var(--white); margin-bottom: 50px; }
-        .pain-item {
-            padding: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-style: italic;
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
+        .card-body p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
         }
-        .pain-item::before { content: '—'; color: var(--gold); margin-right: 20px; font-weight: bold; }
 
-        .diagnosis-card {
-            background-color: var(--white);
-            color: var(--text-main);
-            padding: 60px;
-            border-radius: 20px;
-            margin-top: 80px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        .stars {
+            color: var(--mostarda);
+            font-size: 1.2rem;
         }
-        .diagnosis-card h2 { color: var(--brand-green); margin-bottom: 30px; font-size: 2.2rem; }
-        .diagnosis-card b { color: var(--brand-green); font-weight: 700; }
 
-        /* Dobra 9: Metodologia */
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 60px; }
-        .step-box {
-            background: var(--off-white);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            border: 1px solid #eee;
-            transition: var(--transition);
-        }
-        .step-box:hover { transform: translateY(-5px); border-color: var(--soft-blue); }
-        .step-box h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--brand-green); }
-        .step-box span { display: block; font-family: 'Playfair Display'; font-size: 3rem; color: var(--soft-blue); opacity: 0.4; margin-bottom: 10px; }
-
-        /* Dobra 16: Autoridade */
-        .auth-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .auth-photo {
-            aspect-ratio: 1/1.2;
-            background-color: var(--soft-blue);
-            border-radius: var(--border-radius);
-            position: relative;
-            overflow: hidden;
-        }
-        .auth-photo div { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: white; letter-spacing: 0.2em; font-size: 0.8rem; }
-
-        /* FAQ */
-        .faq-container { max-width: 800px; margin: 0 auto; margin-top: 60px; }
-        .faq-item { background: var(--white); margin-bottom: 15px; border-radius: 8px; border: 1px solid #f0f0f0; transition: var(--transition); }
-        .faq-question {
-            padding: 25px 35px;
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--verde-primario);
             cursor: pointer;
-            font-weight: 600;
+            padding: 10px;
+        }
+
+        .dots {
+            margin-top: 30px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.1rem;
+            justify-content: center;
+            gap: 10px;
         }
-        .faq-answer { padding: 0 35px; max-height: 0; overflow: hidden; transition: var(--transition); color: #666; }
-        .faq-item.active { box-shadow: var(--shadow-premium); border-color: var(--gold); }
-        .faq-item.active .faq-answer { padding-bottom: 30px; max-height: 300px; }
-        .faq-item.active i { transform: rotate(180deg); color: var(--gold); }
 
-        footer { background-color: var(--dark-blue); color: var(--white); padding: 100px 0 60px; text-align: center; }
-        .footer-crp { opacity: 0.5; font-size: 0.8rem; margin: 20px 0; letter-spacing: 0.1em; }
-
-        @media (max-width: 768px) {
-            section { padding: 80px 0; }
-            .auth-content { grid-template-columns: 1fr; gap: 40px; }
-            .hero h1 { font-size: 2.2rem; }
-            .diagnosis-card { padding: 35px; }
-            .auth-photo { order: -1; }
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
         }
+
+        .dot.active {
+            background-color: var(--verde-primario);
+        }
+
+        /* Responsividade */
+
+    @media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        display: flex; /* Mudamos para flex para controlar melhor a ordem vertical */
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        order: 1; /* Conteúdo (texto e botão) primeiro */
+    }
+
+    .hero-image-wrapper { 
+        order: 2; /* Imagem por último (abaixo do botão) */
+        margin-top: 50px; 
+        margin-bottom: 0;
+    }
+
+    .hero-titulo { font-size: 2.2rem; }
+    .hero-description { margin-left: auto; margin-right: auto; }
+    .testimonial-card { min-width: 100%; }
+}
     </style>
 </head>
 <body>
 
-    <!-- DOBRA 1: PROMESSA -->
+    <!-- PRIMEIRA DOBRA -->
     <section class="hero">
-        <div class="container">
-            <span class="hero-logo">ANA LÚCIA SEIXAS</span>
-            <span class="section-label">Psicóloga Online para Mulheres</span>
-            <h1>Você aprendeu a dar conta de tudo sozinha. Só que alguns padrões não cedem à força de vontade.</h1>
-            
-            <div class="subheadline">
-                <p>Psicoterapia particular, online e presencial, com base na <b>Terapia do Esquema</b>. Um espaço para entender por que você repete as mesmas dores na ansiedade, na autoestima e nos relacionamentos.</p>
-            </div>
-
-            <span class="anchor-phrase">Cuidar de quem você é também é responsabilidade sua.</span>
-
-            <a href="https://wa.me/SEUNUMERO" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> Quero conversar no WhatsApp
-            </a>
-            <p style="margin-top: 30px; font-size: 0.85rem; letter-spacing: 0.1em; opacity: 0.6; text-transform: uppercase;">Atendimento online e presencial às quintas-feiras</p>
-        </div>
-    </section>
-
-    <!-- DOBRA 2: PROVA SOCIAL -->
-    <section class="social-proof">
-        <div class="container">
-            <span class="section-label" style="color: var(--dark-blue); text-align: center;">Vozes de quem percorreu o caminho</span>
-            <h2 class="text-center" style="margin-bottom: 50px;">Mulheres que decidiram olhar para dentro contam como foi:</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
-                    <div style="margin-top: 30px; font-weight: 700; color: var(--brand-green); font-size: 0.9rem;">Paciente, 38 anos, identidade preservada</div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Substituir pelo link real do logo se necessário -->
+                <div class="logo-header">
+                <!-- Substitua 'img/logo.svg' pelo caminho real do seu arquivo -->
+                    <img src="img/logo.webp" alt="Ana Lúcia Seixas - Psicóloga Clínica" class="main-logo">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DOBRA 3, 4 e 5: DOR E DIAGNÓSTICO -->
-    <section class="pain-section">
-        <div class="container">
-            <span class="section-label">Identificação</span>
-            <h2>Vozes da cabeça</h2>
-            <p style="margin-bottom: 40px; opacity: 0.8;">Se você chegou até aqui, provavelmente reconhece pelo menos uma dessas situações:</p>
-            
-            <div class="pain-list">
-                <div class="pain-item">"Todo mundo me acha forte, mas por dentro eu vivo no limite."</div>
-                <div class="pain-item">"Eu sei o que preciso fazer, mas na hora eu travo e não consigo me posicionar."</div>
-                <div class="pain-item">"Fico dias remoendo uma conversa que pra outra pessoa já passou."</div>
-                <div class="pain-item">"Coloco todo mundo em primeiro lugar e no fim sobra pouco de mim pra mim."</div>
-                <div class="pain-item">"Sempre acabo repetindo o mesmo tipo de relação, mesmo prometendo que dessa vez seria diferente."</div>
-            </div>
-
-            <div class="diagnosis-card">
-                <span class="section-label">Diagnóstico</span>
-                <h2>Entenda o que está acontecendo</h2>
-                <p>O problema não está na sua falta de esforço. Está em tentar resolver com as ferramentas erradas:</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
-                    <div>
-                        <p><b>Força de vontade organiza hábitos, não padrões emocionais.</b> Padrões que se formaram ao longo de anos não respondem a "decidir mudar". Eles têm raiz mais funda.</p>
-                    </div>
-                    <div>
-                        <p><b>Autoajuda trata o sintoma, não a origem.</b> Você alivia por uns dias e depois tudo volta, porque a causa continua intocada.</p>
-                    </div>
-                    <div>
-                        <p><b>Sozinha, é quase impossível enxergar o próprio padrão.</b> Você está dentro dele. É por isso que um olhar clínico treinado faz diferença.</p>
-                    </div>
-                </div>
-                <p style="font-style: italic; margin-top: 40px; font-size: 1.3rem; color: var(--gold); font-family: 'Playfair Display';">Não é sobre ser mais forte. É sobre finalmente olhar no lugar certo.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- DOBRA 9: METODOLOGIA -->
-    <section class="bg-soft">
-        <div class="container">
-            <span class="section-label text-center">A Jornada</span>
-            <h2 class="text-center">Como o trabalho acontece</h2>
-            <div class="steps-grid">
-                <div class="step-box">
-                    <span>01</span>
-                    <h3>Entender o que se repete</h3>
-                    <p>Juntas, vocês mapeiam os padrões que aparecem na sua vida, na autoestima e nas relações.</p>
-                </div>
-                <div class="step-box">
-                    <span>02</span>
-                    <h3>Chegar à raiz</h3>
-                    <p>A Terapia do Esquema investiga onde e como esses padrões se formaram, sem julgamento, com acolhimento.</p>
-                </div>
-                <div class="step-box">
-                    <span>03</span>
-                    <h3>Experimentar o novo na prática</h3>
-                    <p>Com técnicas vivenciais, você não só compreende, você sente e treina novas formas de reagir.</p>
-                </div>
-                <div class="step-box">
-                    <span>04</span>
-                    <h3>Sustentar a mudança</h3>
-                    <p>O acompanhamento contínuo garante que o que você desenvolve se firme no dia a dia.</p>
-                </div>
-            </div>
-            <p class="text-center" style="margin-top: 50px; font-style: italic; opacity: 0.7;">Cada etapa tem um propósito claro. Você sabe onde está e para onde o processo caminha.</p>
-        </div>
-    </section>
-
-    <!-- DOBRA 16: AUTORIDADE -->
-    <section>
-        <div class="container">
-            <div class="auth-content">
-                <div class="auth-photo">
-                    <div>FOTO DA ANA LÚCIA</div>
-                </div>
-                <div class="auth-text">
-                    <span class="section-label">Quem te atende</span>
-                    <h2>Ana Lúcia Seixas</h2>
-                    <p>Psicóloga clínica com <b>30 anos de formação</b>, dedicada à psicoterapia de mulheres adultas.</p>
-                    <p>Sua abordagem principal é a <b>Terapia do Esquema</b>. Atuou por quase duas décadas em Recursos Humanos, o que aprofunda sua leitura sobre comportamento e padrões emocionais.</p>
-                    <p style="margin-top: 30px; font-style: italic; font-size: 1.2rem; font-family: 'Playfair Display'; color: var(--brand-green);">"Meu compromisso é oferecer um espaço ético, humano e seguro para você se entender e crescer, no seu tempo."</p>
-                    <div class="footer-crp" style="opacity: 1; margin: 30px 0 0 0; font-weight: 700; color: var(--dark-blue);">CRP [INSERIR REGISTRO]</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DOBRA 17: FAQ -->
-    <section class="bg-soft">
-        <div class="container">
-            <span class="section-label text-center">Dúvidas Frequentes</span>
-            <h2 class="text-center">Perguntas Comuns</h2>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">O atendimento é online ou presencial? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">Oferecemos ambas as modalidades. Atendimento online para sua conveniência ou presencial às quintas-feiras em um ambiente acolhedor.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Quanto tempo dura cada sessão? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">As sessões individuais têm duração de 50 minutos. O acompanhamento é mensal, garantindo continuidade ao processo.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Como funciona o primeiro contato? <i class="fas fa-chevron-down"></i></div>
-                    <div class="faq-answer">O contato inicial é feito via WhatsApp para tirar dúvidas rápidas e, se necessário, uma breve ligação de alinhamento.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <h2 style="color: var(--gold); margin-bottom: 10px;">Ana Lúcia Seixas</h2>
-            <p style="font-weight: 400;">Psicóloga Clínica | Terapia do Esquema</p>
-            <div class="footer-crp">CRP [INSERIR REGISTRO]</div>
-            <div style="margin: 40px 0;">
-                <a href="https://wa.me/SEUNUMERO" style="color: var(--gold); text-decoration: none; font-weight: 700; border-bottom: 1px solid var(--gold); padding-bottom: 5px;">
-                    <i class="fab fa-whatsapp"></i> [INSERIR NÚMERO]
+                
+                <!-- <span class="badge">Psicóloga Online para Mulheres</span> -->
+                
+                <h1 class="hero-titulo">
+                    Você aprendeu a dar conta de tudo sozinha. Só que alguns padrões não cedem à força de vontade.
+                </h1>
+                
+                <p class="hero-description">
+                    Psicoterapia particular, online e presencial, com base na Terapia do Esquema. Um espaço para entender por que você repete as mesmas dores na ansiedade, na autoestima e nos relacionamentos.<br><br>
+                    <strong>Cuidar de quem você é também é responsabilidade sua.</strong>
+                </p>
+                
+                <a href="#" class="btn-whatsapp">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.967 1.582 5.713l-.999 3.647 3.906-.958z"/></svg>
+                    Quero conversar no WhatsApp
                 </a>
             </div>
-            <p style="font-size: 0.8rem; opacity: 0.4;">© Todos os direitos reservados.</p>
+
+            <div class="hero-image-wrapper">
+    <div class="shape-bg"></div>
+    <picture>
+        <!-- Imagem para Mobile (telas até 768px) -->
+        <source srcset="img/ana-lucia-mobile.webp" media="(max-width: 768px)">
+        <!-- Imagem padrão para Desktop -->
+        <img src="img/ana-lucia.webp" alt="Ana Lúcia Seixas">
+    </picture>
+</div>
         </div>
-    </footer>
+    </section>
+
+    <!-- SEGUNDA DOBRA -->
+    <section class="testimonials">
+        <h2 class="testimonials-titulo">
+            Mulheres que decidiram olhar para dentro com apoio profissional contam como foi:
+        </h2>
+
+        <div class="slider-wrapper">
+            <button class="nav-btn prev">&lt;</button>
+            
+            <div class="cards-container" id="slider">
+                <!-- Card 1 -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <h4>Susana Pereira</h4>
+                        <span>42 anos | Junho - 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Clone para demonstração) -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <h4>Susana Pereira</h4>
+                        <span>42 anos | Junho - 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Clone para demonstração) -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <h4>Susana Pereira</h4>
+                        <span>42 anos | Junho - 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 (Clone para demonstração) -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <h4>Susana Pereira</h4>
+                        <span>42 anos | Junho - 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-btn next">&gt;</button>
+        </div>
+
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
 
     <script>
-        // FAQ Accordion logic
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', () => {
-                const parent = item.parentElement;
-                const isActive = parent.classList.contains('active');
-                
-                document.querySelectorAll('.faq-item').forEach(child => child.classList.remove('active'));
-                
-                if (!isActive) {
-                    parent.classList.add('active');
-                }
+        // Lógica simples para o slider de depoimentos
+        const slider = document.getElementById('slider');
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+        const dots = document.querySelectorAll('.dot');
+
+        let scrollAmount = 0;
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: 350, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -350, behavior: 'smooth' });
+        });
+
+        // Atualização visual dos pontos (apenas estética neste exemplo manual)
+        slider.addEventListener('scroll', () => {
+            let index = Math.round(slider.scrollLeft / 350);
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
             });
         });
     </script>
-
 </body>
 </html>
