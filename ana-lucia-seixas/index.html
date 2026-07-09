@@ -576,25 +576,11 @@
             position: relative;
         }
 
-        /* Forma orgânica sutil atrás da imagem */
-        .service-image-wrapper::before {
-            content: "";
-            position: absolute;
-            width: 110%;
-            height: 110%;
-            background-color: #f0f4f3; /* Um verde muito claro quase cinza */
-            top: -5%;
-            left: -5%;
-            z-index: 1;
-            border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
-        }
-
         .service-image-wrapper img {
             position: relative;
             z-index: 2;
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
         /* Ajuste Mobile */
@@ -850,124 +836,98 @@
             }
         }
 
-        /* --- DOBRA 11: PARA QUEM É (LAYOUT DIVIDIDO) --- */
+        /* --- DOBRA 11: PARA QUEM É (MODERNA / CARDS AZUIS) --- */
         .for-whom {
             padding: 100px 8%;
-            background-color: var(--branco);
+            background-color: #fdfdfd;
+            text-align: center;
         }
 
-        .for-whom-container {
+        .for-whom-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .for-whom-header h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .for-whom-header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .for-whom-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* Texto maior à esquerda, imagem à direita */
-            gap: 60px;
-            align-items: center;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .for-whom-content {
+        .for-whom-card {
+            background-color: var(--azul-escuro);
+            padding: 40px 30px;
+            border-radius: 24px; /* Cantos bem arredondados modernos */
+            color: var(--branco);
             text-align: left;
-        }
-
-        .for-whom-content h2 {
-            font-family: var(--font-titulo);
-            color: var(--verde-primario);
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .for-whom-content .subtitle {
-            font-size: 1.2rem;
-            color: var(--azul-escuro);
-            font-weight: 600;
-            margin-bottom: 35px;
-            display: block;
-        }
-
-        .for-whom-list {
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(40, 49, 82, 0.15);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .for-whom-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 15px;
-            background-color: #fcfdfd;
-            border-radius: 10px;
-            border-left: 3px solid transparent;
-            transition: all 0.3s ease;
+        .for-whom-card:hover {
+            transform: translateY(-10px);
+            background-color: #2e385d; /* Um azul levemente mais claro no hover */
+            box-shadow: 0 15px 40px rgba(40, 49, 82, 0.25);
         }
 
-        .for-whom-item:hover {
-            border-left-color: var(--mostarda);
-            background-color: #f6f9f8;
-            transform: translateX(5px);
-        }
-
-        .check-icon {
+        .card-icon {
             color: var(--mostarda);
-            flex-shrink: 0;
-            margin-top: 2px;
+            margin-bottom: 25px;
+            display: flex;
         }
 
-        .for-whom-item p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #444;
+        .for-whom-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
             margin: 0;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
         }
 
-        .for-whom-footer-text {
-            margin-top: 40px;
+        .for-whom-conclusion {
+            margin-top: 60px;
             font-family: var(--font-titulo);
-            font-size: 1.3rem;
             color: var(--verde-primario);
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.4;
         }
 
-        /* Espaço da Imagem */
-        .for-whom-image-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .for-whom-image-wrapper::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #f0f4f3;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Forma orgânica */
-            z-index: 1;
-            transform: scale(1.1);
-        }
-
-        .for-whom-image-wrapper img {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 450px;
-            border-radius: 20px;
-            display: block;
-        }
-
-        /* Ajuste Mobile */
-        @media (max-width: 992px) {
-            .for-whom-container {
-                grid-template-columns: 1fr;
-                text-align: center;
+        /* Responsividade */
+        @media (max-width: 1100px) {
+            .for-whom-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
             }
-            .for-whom-content { text-align: center; }
-            .for-whom-list { text-align: left; }
-            .for-whom-image-wrapper {
-                order: 2;
-                margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .for-whom-grid {
+                grid-template-columns: 1fr; /* 1 coluna no mobile */
             }
-            .for-whom-content h2 { font-size: 2rem; }
+            .for-whom-header h2 { font-size: 2.2rem; }
+            .for-whom-conclusion { font-size: 1.3rem; }
+            .for-whom-card { padding: 30px; }
         }
 
         /* --- DOBRA 12: ANCORAGEM DE VALOR --- */
@@ -1075,26 +1035,122 @@
         .step-line { margin-bottom: 15px; display: flex; gap: 15px; align-items: center; }
         .step-num { color: var(--mostarda); font-weight: 800; font-size: 1.2rem; }
 
-        /* --- DOBRA 14: RISCO ZERO --- */
+        /* --- DOBRA 14: RISCO ZERO (REMODELADA) --- */
         .zero-risk {
-            padding: 100px 8%;
-            background-color: var(--branco);
-            text-align: center;
+            padding: 120px 8%;
+            background-color: #f6f9f8; /* Fundo sage muito suave */
+            position: relative;
+            overflow: hidden;
         }
 
-        .zero-risk h2 { font-family: var(--font-titulo); color: var(--azul-escuro); font-size: 2.4rem; margin-bottom: 30px; }
-        .zero-risk p { max-width: 800px; margin: 0 auto 30px; line-height: 1.7; font-size: 1.1rem; }
-        .btn-outline {
-            border: 2px solid var(--verde-primario);
+        /* Forma orgânica de fundo para dar charme */
+        .zero-risk::after {
+            content: "";
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(225, 178, 85, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+            filter: blur(50px);
+        }
+
+        .zero-risk-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--branco);
+            padding: 60px 40px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 104, 91, 0.08);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            border: 1px solid rgba(0, 104, 91, 0.05);
+        }
+
+        .zero-risk-container h2 {
+            font-family: var(--font-titulo);
             color: var(--verde-primario);
-            padding: 18px 35px;
-            border-radius: 50px;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        /* Linha de benefícios com ícones */
+        .zero-risk-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            background-color: rgba(225, 178, 85, 0.15);
+            color: var(--mostarda);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        .zero-risk-highlight {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .zero-risk-highlight strong {
+            color: var(--mostarda);
+            font-weight: 700;
+        }
+
+        .btn-gold {
+            background-color: var(--mostarda);
+            color: var(--azul-escuro);
             text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
             font-weight: 700;
             display: inline-block;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(225, 178, 85, 0.3);
         }
-        .btn-outline:hover { background: var(--verde-primario); color: var(--branco); }
+
+        .btn-gold:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(225, 178, 85, 0.4);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .zero-risk-benefits { grid-template-columns: 1fr; gap: 25px; }
+            .zero-risk-container h2 { font-size: 2rem; }
+            .zero-risk-container { padding: 40px 25px; }
+        }
 
         /* --- DOBRA 15: AUTORIDADE --- */
         .authority {
@@ -1279,20 +1335,20 @@
                     <p>"Todo mundo me acha forte, mas por dentro eu vivo no limite."</p>
                 </div>
                 <div class="situation-card">
-                    <p>"Todo mundo me acha forte, mas por dentro eu vivo no limite."</p>
+                    <p>"Eu sei o que preciso fazer, mas na hora eu travo e não consigo me posicionar."</p>
                 </div>
                 <div class="situation-card">
-                    <p>"Todo mundo me acha forte, mas por dentro eu vivo no limite."</p>
+                    <p>"Fico dias remoendo uma conversa que pra outra pessoa já passou."</p>
                 </div>
             </div>
 
             <!-- Fileira de 2 (Centralizada) -->
             <div class="row-bottom">
                 <div class="situation-card">
-                    <p>"Todo mundo me acha forte, mas por dentro eu vivo no limite."</p>
+                    <p>"Coloco todo mundo em primeiro lugar e no fim sobra pouco de mim pra mim."</p>
                 </div>
                 <div class="situation-card">
-                    <p>"Todo mundo me acha forte, mas por dentro eu vivo no limite."</p>
+                    <p>"Sempre acabo repetindo o mesmo tipo de relação, mesmo prometendo que dessa vez seria diferente." </p>
                 </div>
             </div>
         </div>
@@ -1396,7 +1452,7 @@
 
             <div class="service-image-wrapper">
                 <!-- Substituir pela imagem do consultório ou da psicóloga em atendimento -->
-                <img src="img/consultorio-ana.webp" alt="Espaço de acolhimento Ana Lúcia Seixas">
+                <img src="img/logo-ana-lucia.webp" alt="Espaço de acolhimento Ana Lúcia Seixas">
             </div>
         </div>
     </section>]
@@ -1536,68 +1592,65 @@
         </div>
     </section>
 
-    <!-- DOBRA 11: PARA QUEM É -->
+    <!-- DOBRA 11: PARA QUEM É (MODERNA) -->
     <section class="for-whom">
-        <div class="for-whom-container">
-            <!-- LADO ESQUERDO: CONTEÚDO -->
-            <div class="for-whom-content">
-                <h2>PARA QUEM É</h2>
-                <span class="subtitle">Esse atendimento é para você que...</span>
+        <div class="for-whom-header">
+            <h2>PARA QUEM É</h2>
+            <p>Esse atendimento é para você que...</p>
+        </div>
 
-                <div class="for-whom-list">
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Sente ansiedade ou sofrimento emocional que volta sempre, mesmo quando "tá tudo bem" por fora.</p>
-                    </div>
-
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Tem dificuldade de se posicionar e depois se cobra por isso.</p>
-                    </div>
-
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Vive uma autoestima que oscila e uma insegurança que trava suas escolhas.</p>
-                    </div>
-
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Percebe que repete os mesmos padrões nos relacionamentos.</p>
-                    </div>
-
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Sente que já tentou "dar conta sozinha" e chegou no limite dessa conta.</p>
-                    </div>
-
-                    <div class="for-whom-item">
-                        <div class="check-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <p>Quer se entender de verdade, não só aliviar o sintoma da vez.</p>
-                    </div>
+        <div class="for-whom-grid">
+            <!-- Card 1 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-
-                <div class="for-whom-footer-text">
-                    <p>Se você se reconheceu em pelo menos duas situações, esse pode ser o seu próximo passo.</p>
-                </div>
+                <p>Sente ansiedade ou sofrimento emocional que volta sempre, mesmo quando "tá tudo bem" por fora.</p>
             </div>
 
-            <!-- LADO DIREITO: IMAGEM -->
-            <div class="for-whom-image-wrapper">
-                <!-- Espaço para a imagem ilustrativa -->
-                <img src="img/para-quem-e.webp" alt="Ana Lúcia Seixas - Atendimento">
+            <!-- Card 2 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Tem dificuldade de se posicionar e depois se cobra por isso.</p>
             </div>
+
+            <!-- Card 3 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Vive uma autoestima que oscila e uma insegurança que trava suas escolhas.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Percebe que repete os mesmos padrões nos relacionamentos.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Sente que já tentou "dar conta sozinha" e chegou no limite dessa conta.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Quer se entender de verdade, não só aliviar o sintoma da vez.</p>
+            </div>
+        </div>
+
+        <div class="for-whom-conclusion">
+            <p>Se você se reconheceu em pelo menos duas situações, esse pode ser o seu próximo passo.</p>
         </div>
     </section>
 
@@ -1633,20 +1686,59 @@
         </div>
     </section>
 
-    <!-- DOBRA 14: RISCO ZERO -->
+    <!-- DOBRA 14: RISCO ZERO (VERSÃO ATRAENTE) -->
     <section class="zero-risk">
-        <h2>O PRIMEIRO PASSO NÃO EXIGE COMPROMISSO</h2>
-        <p>Começar é simples e sem pressão. Você fala primeiro pelo WhatsApp, tira todas as suas dúvidas e, se ainda precisar, conversa por alguns minutos ao telefone antes de qualquer decisão.</p>
-        <p>Tudo o que você compartilhar é protegido pelo sigilo profissional. E se um imprevisto surgir, a sessão pode ser reposta em até uma semana, sem burocracia.</p>
-        <p><strong>O único compromisso do primeiro contato é começar a conversa.</strong></p>
-        <a href="#" class="btn-outline">TIRAR MINHAS DÚVIDAS NO WHATSAPP</a>
+        <div class="zero-risk-container">
+            <h2>O primeiro passo não exige compromisso</h2>
+
+            <div class="zero-risk-benefits">
+                <!-- Benefício 1 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.9A8.38 8.38 0 0 1 4 11.3a8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <p><strong>Começo simples e sem pressão:</strong> Você fala primeiro pelo WhatsApp e, se ainda precisar, conversa por alguns minutos ao telefone antes de decidir.</p>
+                </div>
+
+                <!-- Benefício 2 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <p><strong>Privacidade Total:</strong> Tudo o que você compartilhar é protegido pelo sigilo profissional. Sua segurança é minha prioridade.</p>
+                </div>
+
+                <!-- Benefício 3 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                    </div>
+                    <p><strong>Flexibilidade sem Burocracia:</strong> Se um imprevisto surgir, a sessão pode ser reposta em até uma semana. O processo flui no seu ritmo.</p>
+                </div>
+
+                <!-- Benefício 4 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <p><strong>Acolhimento Profissional:</strong> Espaço ético e humano garantido pela bagagem de 30 anos de atuação clínica.</p>
+                </div>
+            </div>
+
+            <div class="zero-risk-highlight">
+                O único compromisso do primeiro contato é <strong>começar a conversa.</strong>
+            </div>
+
+            <br>
+            <a href="#" class="btn-gold">TIRAR MINHAS DÚVIDAS NO WHATSAPP</a>
+        </div>
     </section>
 
     <!-- DOBRA 15: AUTORIDADE -->
     <section class="authority">
         <div class="auth-container">
             <div class="auth-image">
-                <img src="img/ana-bio.webp" alt="Ana Lúcia Seixas" style="width:100%; border-radius:20px; border-bottom: 10px solid var(--mostarda);">
+                <img src="img/AnaLucia.webp" alt="Ana Lúcia Seixas" style="width:100%; border-radius:20px; border-bottom: 10px solid var(--mostarda);">
             </div>
             <div class="auth-text">
                 <h2>QUEM VAI TE ATENDER</h2>
@@ -1707,7 +1799,7 @@
             <p>Atendimento particular, online e presencial (quintas-feiras)</p>
             <p>Contato: WhatsApp [INSERIR NÚMERO]</p>
         </div>
-        <p class="copyright">© 2025 Ana Lúcia Seixas. Todos os direitos reservados.</p>
+        <p class="copyright">© 2026 Ana Lúcia Seixas. Todos os direitos reservados.</p>
     </footer>
 
     <script>
