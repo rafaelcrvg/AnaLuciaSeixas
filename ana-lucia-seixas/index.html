@@ -244,26 +244,36 @@
         /* Responsividade */
 
     @media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        display: flex; /* Mudamos para flex para controlar melhor a ordem vertical */
-        flex-direction: column;
-    }
-    
-    .hero-content {
-        order: 1; /* Conteúdo (texto e botão) primeiro */
-    }
+        .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hero-content {
+            order: 1;
+        }
 
-    .hero-image-wrapper { 
-        order: 2; /* Imagem por último (abaixo do botão) */
-        margin-top: 50px; 
-        margin-bottom: 0;
-    }
+        .hero-image-wrapper { 
+            order: 2;
+            margin-top: 50px; 
+            margin-bottom: 0;
+            display: block; /* Garante visibilidade */
+            width: 100%;
+        }
 
-    .hero-titulo { font-size: 2.2rem; }
-    .hero-description { margin-left: auto; margin-right: auto; }
-    .testimonial-card { min-width: 100%; }
+        /* Adicione este bloco abaixo */
+        .hero-image-wrapper img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-titulo { font-size: 2.2rem; }
+        .hero-description { margin-left: auto; margin-right: auto; }
+        .testimonial-card { min-width: 100%; }
     }
 
     /* --- TERCEIRA DOBRA: SITUAÇÕES (TODOS HORIZONTAIS) --- */
