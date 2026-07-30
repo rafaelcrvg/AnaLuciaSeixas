@@ -490,6 +490,12 @@
             color: var(--verde-primario);
             font-style: italic;
         }
+        .diagnosis-item-center {
+            grid-column: 1 / -1; /* Faz o item ocupar toda a largura da grid */
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
 
         /* --- DOBRA 6: OPORTUNIDADE (AJUSTADA) --- */
         .opportunity {
@@ -1399,26 +1405,21 @@
         <div class="diagnosis-header">
             <span>Diagnóstico</span>
             <h2>ENTENDA O QUE ESTÁ ACONTECENDO</h2>
-            <p>O problema não está na sua falta de esforço. Está em tentar resolver com as ferramentas erradas:</p>
+            <p>O problema não está na sua falta de esforço. Está em tentar resolver de forma inadequada:</p>
         </div>
 
         <div class="diagnosis-grid">
             <div class="diagnosis-item">
                 <h3>Força de vontade organiza hábitos, não padrões emocionais.</h3>
-                <p>Padrões que se formaram ao longo de anos não respondem a "decidir mudar". Eles têm raiz mais funda.</p>
+                <p>Padrões que se formaram ao longo de anos não respondem a "decidir mudar". Eles têm raízes profundas, na infância.</p>
             </div>
             
             <div class="diagnosis-item">
                 <h3>Autoajuda trata o sintoma, não a origem.</h3>
-                <p>Você alivia por uns dias e depois tudo volta, porque a causa continua intocada.</p>
+                <p>Você alivia por uns dias e depois ele retorna, porque a causa continua intocada.</p>
             </div>
 
-            <div class="diagnosis-item">
-                <h3>Sozinha, é quase impossível enxergar o próprio padrão.</h3>
-                <p>Você está dentro dele. É por isso que um olhar clínico treinado faz diferença onde a tentativa solitária não chegou.</p>
-            </div>
-
-            <div class="diagnosis-item">
+            <div class="diagnosis-item-center">
                 <p style="padding-top: 20px; font-weight: 600;">O seu cansaço vem de lutar contra algo que você ainda não compreendeu totalmente.</p>
             </div>
         </div>
