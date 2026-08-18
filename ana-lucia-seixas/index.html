@@ -67,7 +67,7 @@
     display: block;
     width: 100%;
     /* Ajuste o max-width abaixo para o tamanho visual que você deseja que o logo tenha */
-    max-width: 220px; 
+    max-width: 250px; 
     height: auto;
 }
 
@@ -99,8 +99,8 @@
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.2;
             margin-bottom: 35px;
             max-width: 500px;
         }
@@ -139,7 +139,7 @@
         /* --- SEGUNDA DOBRA: DEPOIMENTOS --- */
         .testimonials {
             padding: 100px 8%;
-            background-color: var(--branco);
+            background-color: #FFFCF8;
             text-align: center;
         }
 
@@ -244,30 +244,990 @@
         /* Responsividade */
 
     @media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        display: flex; /* Mudamos para flex para controlar melhor a ordem vertical */
-        flex-direction: column;
-    }
-    
-    .hero-content {
-        order: 1; /* Conteúdo (texto e botão) primeiro */
+        .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hero-content {
+            order: 1;
+        }
+
+        .hero-image-wrapper { 
+            order: 2;
+            margin-top: 50px; 
+            margin-bottom: 0;
+            display: block; /* Garante visibilidade */
+            width: 100%;
+        }
+
+        /* Adicione este bloco abaixo */
+        .hero-image-wrapper img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-titulo { font-size: 2.2rem; }
+        .hero-description { margin-left: auto; margin-right: auto; }
+        .testimonial-card { min-width: 100%; }
     }
 
-    .hero-image-wrapper { 
-        order: 2; /* Imagem por último (abaixo do botão) */
-        margin-top: 50px; 
-        margin-bottom: 0;
-    }
+    /* --- TERCEIRA DOBRA: SITUAÇÕES (TODOS HORIZONTAIS) --- */
+        .situations {
+            padding: 80px 8%;
+            background-color: #b2cbc7;
+            text-align: center;
+        }
 
-    .hero-titulo { font-size: 2.2rem; }
-    .hero-description { margin-left: auto; margin-right: auto; }
-    .testimonial-card { min-width: 100%; }
-}
+        .situations-titulo {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.2rem;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.2;
+        }
+
+        .situations-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espaço entre as fileiras */
+        }
+
+        .row-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .row-bottom {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Card Padronizado Horizontal */
+        .situation-card {
+            background-color: var(--branco);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            min-height: 160px; /* Altura padrão para todos */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            width: 100%;
+        }
+
+        /* Garante que os cards de baixo tenham a mesma largura dos de cima */
+        .row-bottom .situation-card {
+            max-width: calc(33.33% - 14px); 
+        }
+
+        .situation-card p {
+            font-size: 1rem;
+            color: var(--verde-primario);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        @media (max-width: 992px) {
+            .row-top {
+                grid-template-columns: 1fr;
+            }
+            .row-bottom {
+                flex-direction: column;
+                align-items: center;
+            }
+            .row-bottom .situation-card {
+                max-width: 100%;
+            }
+            .situation-card {
+                min-height: auto;
+            }
+        }
+
+        /* --- QUARTA DOBRA: ATENÇÃO --- */
+        .attention {
+            padding: 100px 8%;
+            background-color: #f9f9f9;
+        }
+
+        .attention-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .attention-content h2 {
+            font-family: var(--font-titulo);
+            color: var(--azul-escuro);
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .attention-text p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .btn-teal {
+            background-color: var(--verde-primario);
+            color: var(--branco);
+            text-decoration: none;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            transition: opacity 0.3s;
+            text-align: center;
+            max-width: 350px;
+        }
+
+        .attention-image-wrapper {
+            position: relative;
+        }
+
+        .attention-image-wrapper img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: block;
+        }
+
+        /* --- RESPONSIVIDADE ADICIONAL --- */
+        @media (max-width: 992px) {
+            .situations-grid {
+                grid-template-columns: 1fr;
+            }
+            .situations-grid .card-item:nth-child(3),
+            .situations-grid .card-item:nth-child(1) {
+                grid-column: auto;
+                margin: 0;
+            }
+            .attention-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .attention-image-wrapper {
+                order: 2;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .btn-teal {
+                max-width: 100%;
+            }
+        }
+
+
+        /* --- DOBRA 5: DIAGNÓSTICO --- */
+        .diagnosis {
+            padding: 100px 8%;
+            background-color: var(--branco);
+            text-align: center;
+        }
+
+        .diagnosis-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .diagnosis-header span {
+            color: var(--mostarda);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .diagnosis-header h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.5rem;
+            margin: 15px 0 25px;
+        }
+
+        .diagnosis-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .diagnosis-item h3 {
+            font-family: var(--font-titulo);
+            color: var(--azul-escuro);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .diagnosis-item h3::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: var(--mostarda);
+            border-radius: 50%;
+        }
+
+        .diagnosis-item p {
+            line-height: 1.6;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .diagnosis-footer {
+            margin-top: 60px;
+            font-family: var(--font-titulo);
+            font-size: 1.6rem;
+            color: var(--verde-primario);
+            font-style: italic;
+        }
+        .diagnosis-item-center {
+            grid-column: 1 / -1; /* Faz o item ocupar toda a largura da grid */
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+
+        /* --- DOBRA 6: OPORTUNIDADE (AJUSTADA) --- */
+        .opportunity {
+            padding: 100px 8%;
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .opportunity-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Transformado em Título */
+        .opportunity-title {
+            font-family: var(--font-titulo);
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            color: var(--branco);
+            font-weight: 400;
+        }
+
+        .opportunity-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .opportunity-highlight {
+            font-family: var(--font-titulo);
+            color: var(--mostarda);
+            font-size: 1.8rem;
+            margin-top: 40px;
+            display: block;
+            line-height: 1.3;
+        }
+
+        /* Ajuste Mobile */
+        @media (max-width: 992px) {
+            .opportunity-title { font-size: 2rem; }
+            .opportunity-highlight { font-size: 1.5rem; }
+        }
+
+        /* --- DOBRA 7: O SERVIÇO COMO SOLUÇÃO --- */
+        .service-solution {
+            padding: 100px 8%;
+            background-color: var(--branco);
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-content h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.4rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .service-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .service-text p strong {
+            color: var(--verde-primario);
+            font-weight: 600;
+        }
+
+        .service-image-wrapper {
+            position: relative;
+        }
+
+        .service-image-wrapper img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        /* Ajuste Mobile */
+        @media (max-width: 992px) {
+            .service-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .service-image-wrapper {
+                order: 2; /* Imagem abaixo no mobile */
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            .service-content h2 { font-size: 2rem; }
+        }
+
+        /* --- DOBRA 8: ABORDAGEM / METODOLOGIA --- */
+        .methodology {
+            padding: 100px 8%;
+            background-color: #f9fbfb; /* Um fundo quase branco, levemente azulado/verde */
+            text-align: center;
+        }
+
+        .methodology-header {
+            margin-bottom: 60px;
+        }
+
+        .methodology-header h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
+
+        .method-card {
+            background-color: var(--branco);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 4px solid var(--mostarda);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .method-number {
+            font-family: var(--font-titulo);
+            color: var(--mostarda);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .method-card h3 {
+            font-family: var(--font-texto);
+            font-weight: 700;
+            color: var(--azul-escuro);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .method-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .methodology-footer {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--verde-primario);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Ajuste Mobile */
+        @media (max-width: 768px) {
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
+            .method-card {
+                padding: 30px;
+            }
+            .methodology-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+
+        /* --- DOBRA 9: COMO FUNCIONA O ATENDIMENTO --- */
+        .practical-info {
+            padding: 100px 8%;
+            background-color: #f0f4f3; /* Verde clarinho para diferenciar */
+            text-align: center;
+        }
+
+        .practical-header {
+            margin-bottom: 60px;
+        }
+
+        .practical-header h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.5rem;
+        }
+
+        .practical-list {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .practical-step {
+            background-color: var(--branco);
+            padding: 30px 40px;
+            border-radius: 15px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .step-index {
+            background-color: var(--mostarda);
+            color: var(--azul-escuro);
+            font-family: var(--font-titulo);
+            font-size: 1.4rem;
+            font-weight: 700;
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-text h3 {
+            font-size: 1.15rem;
+            color: var(--verde-primario);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .step-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .practical-footer {
+            margin-top: 50px;
+            font-size: 1.2rem;
+            color: var(--azul-escuro);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Ajuste Mobile */
+        @media (max-width: 768px) {
+            .practical-step {
+                flex-direction: column;
+                padding: 25px;
+                gap: 15px;
+            }
+            .practical-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* --- DOBRA 10: DIFERENCIAIS --- */
+        .differentials {
+            padding: 100px 8%;
+            background-color: var(--verde-primario);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .differentials-header {
+            margin-bottom: 60px;
+        }
+
+        .differentials-header h2 {
+            font-family: var(--font-titulo);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2x2 para melhor leitura */
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .diff-card {
+            background-color: rgba(255, 255, 255, 0.05); /* Efeito sutil de transparência */
+            border: 1px solid rgba(225, 178, 85, 0.3); /* Borda mostarda translúcida */
+            padding: 40px;
+            border-radius: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .diff-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--mostarda);
+        }
+
+        .diff-icon {
+            margin-bottom: 20px;
+            color: var(--mostarda);
+        }
+
+        .diff-card h3 {
+            font-family: var(--font-texto);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--mostarda);
+        }
+
+        .diff-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Ajuste Mobile */
+        @media (max-width: 992px) {
+            .differentials-grid {
+                grid-template-columns: 1fr;
+            }
+            .differentials-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* --- DOBRA 11: PARA QUEM É (MODERNA / CARDS AZUIS) --- */
+        .for-whom {
+            padding: 100px 8%;
+            background-color: #fdfdfd;
+            text-align: center;
+        }
+
+        .for-whom-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .for-whom-header h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .for-whom-header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .for-whom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .for-whom-card {
+            background-color: var(--azul-escuro);
+            padding: 40px 30px;
+            border-radius: 24px; /* Cantos bem arredondados modernos */
+            color: var(--branco);
+            text-align: left;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: 0 10px 30px rgba(40, 49, 82, 0.15);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .for-whom-card:hover {
+            transform: translateY(-10px);
+            background-color: #2e385d; /* Um azul levemente mais claro no hover */
+            box-shadow: 0 15px 40px rgba(40, 49, 82, 0.25);
+        }
+
+        .card-icon {
+            color: var(--mostarda);
+            margin-bottom: 25px;
+            display: flex;
+        }
+
+        .for-whom-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .for-whom-conclusion {
+            margin-top: 60px;
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.4;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1100px) {
+            .for-whom-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .for-whom-grid {
+                grid-template-columns: 1fr; /* 1 coluna no mobile */
+            }
+            .for-whom-header h2 { font-size: 2.2rem; }
+            .for-whom-conclusion { font-size: 1.3rem; }
+            .for-whom-card { padding: 30px; }
+        }
+
+        /* --- DOBRA 12: ANCORAGEM DE VALOR --- */
+        .value-anchor {
+            padding: 100px 8%;
+            background-color: #f6f9f8;
+            text-align: center;
+        }
+
+        .value-anchor h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.4rem;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            text-align: left;
+        }
+
+        .value-item {
+            background: var(--branco);
+            padding: 30px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--mostarda);
+        }
+
+        .value-item p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--azul-escuro);
+        }
+
+        .value-conclusion {
+            font-size: 1.1rem;
+            color: var(--verde-primario);
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* --- DOBRA 13: OFERTA + CTA --- */
+        .offer {
+            padding: 100px 8%;
+            background-color: var(--verde-primario);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .offer h2 {
+            font-family: var(--font-titulo);
+            font-size: 2.6rem;
+            margin-bottom: 30px;
+        }
+
+        .offer-description {
+            max-width: 850px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .format-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .format-card strong {
+            display: block;
+            color: var(--mostarda);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .steps-box {
+            background: var(--branco);
+            color: var(--azul-escuro);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 700px;
+            margin: 60px auto 0;
+            text-align: left;
+        }
+
+        .steps-box h3 { margin-bottom: 25px; color: var(--verde-primario); }
+
+        .step-line { margin-bottom: 15px; display: flex; gap: 15px; align-items: center; }
+        .step-num { color: var(--mostarda); font-weight: 800; font-size: 1.2rem; }
+
+        /* --- DOBRA 14: RISCO ZERO (REMODELADA) --- */
+        .zero-risk {
+            padding: 120px 8%;
+            background-color: #f6f9f8; /* Fundo sage muito suave */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Forma orgânica de fundo para dar charme */
+        .zero-risk::after {
+            content: "";
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(225, 178, 85, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+            filter: blur(50px);
+        }
+
+        .zero-risk-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--branco);
+            padding: 60px 40px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 104, 91, 0.08);
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            border: 1px solid rgba(0, 104, 91, 0.05);
+        }
+
+        .zero-risk-container h2 {
+            font-family: var(--font-titulo);
+            color: var(--verde-primario);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        /* Linha de benefícios com ícones */
+        .zero-risk-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .benefit-icon {
+            background-color: rgba(225, 178, 85, 0.15);
+            color: var(--mostarda);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .benefit-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        .zero-risk-highlight {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .zero-risk-highlight strong {
+            color: var(--mostarda);
+            font-weight: 700;
+        }
+
+        .btn-gold {
+            background-color: var(--mostarda);
+            color: var(--azul-escuro);
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(225, 178, 85, 0.3);
+        }
+
+        .btn-gold:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px rgba(225, 178, 85, 0.4);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .zero-risk-benefits { grid-template-columns: 1fr; gap: 25px; }
+            .zero-risk-container h2 { font-size: 2rem; }
+            .zero-risk-container { padding: 40px 25px; }
+        }
+
+        /* --- DOBRA 15: AUTORIDADE --- */
+        .authority {
+            padding: 100px 8%;
+            background-color: #f9f9f9;
+        }
+
+        .auth-container {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .auth-text h2 { font-family: var(--font-titulo); color: var(--verde-primario); font-size: 2.5rem; margin-bottom: 25px; }
+        .auth-text p { margin-bottom: 20px; line-height: 1.7; color: #444; }
+        .cert-list { list-style: none; margin: 25px 0; }
+        .cert-list li { margin-bottom: 12px; display: flex; gap: 10px; font-size: 0.95rem; }
+        .cert-list li::before { content: "•"; color: var(--mostarda); font-weight: bold; }
+        .auth-quote { font-style: italic; color: var(--verde-primario); font-weight: 600; margin-top: 30px; display: block; }
+
+        /* --- DOBRA 16: FAQ --- */
+        .faq {
+            padding: 100px 8%;
+            background-color: var(--branco);
+        }
+
+        .faq h2 { text-align: center; font-family: var(--font-titulo); color: var(--verde-primario); font-size: 2.5rem; margin-bottom: 50px; }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; font-weight: 700; color: var(--azul-escuro); }
+        .faq-answer { display: none; padding-top: 15px; line-height: 1.6; color: #666; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { color: var(--verde-primario); }
+
+        /* --- DOBRA 17: RODAPÉ --- */
+        footer {
+            padding: 60px 8% 30px;
+            background-color: var(--azul-escuro);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-logo { color: var(--branco); font-family: var(--font-titulo); font-size: 1.5rem; margin-bottom: 20px; display: block; }
+        .footer-info p { margin-bottom: 10px; }
+        .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        /* Responsividade FAQ e Authority */
+        @media (max-width: 992px) {
+            .value-grid, .formats-grid, .auth-container { grid-template-columns: 1fr; }
+            .auth-image { order: -1; max-width: 300px; margin: 0 auto 30px; }
+            .auth-text { text-align: center; }
+            .auth-text h2 { font-size: 2rem; }
+        }
+
     </style>
-</head>
-<body>
+    </head>
+    <body>
 
     <!-- PRIMEIRA DOBRA -->
     <section class="hero">
@@ -282,17 +1242,19 @@
                 <!-- <span class="badge">Psicóloga Online para Mulheres</span> -->
                 
                 <h1 class="hero-titulo">
-                    Você aprendeu a dar conta de tudo sozinha. Só que alguns padrões não cedem à força de vontade.
+                    Psicoterapia para adultos que vivem emoções intensas, padrões repetitivos e dificuldade de regulação emocional 
                 </h1>
-                
+                <h2>
+                    O <b>autoconhecimento liberta</b> e nos permite trilhar um caminho mais leve e consciente.
+                </h2><br><br>
                 <p class="hero-description">
-                    Psicoterapia particular, online e presencial, com base na Terapia do Esquema. Um espaço para entender por que você repete as mesmas dores na ansiedade, na autoestima e nos relacionamentos.<br><br>
-                    <strong>Cuidar de quem você é também é responsabilidade sua.</strong>
+                    Atendimento psicológico para homens e mulheres que enfrentam emoções intensas, ansiedade, instabilidade nos relacionamentos, autocrítica e padrões que se repetem mesmo quando há esforço para mudar. <br><br>
+                    <strong>Cuidar de quem você é transforma a sua interação com a vida. Se você chegou até aqui, já deu o primeiro passo para a sua mudança…</strong>
                 </p>
                 
-                <a href="#" class="btn-whatsapp">
+                <a href="https://api.whatsapp.com/send/?phone=5521981196944&text=Quero+falar+com+a+psic%C3%B3loga&type=phone_number&app_absent=0" target="_blank" class="btn-whatsapp" >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884 0 2.225.569 3.967 1.582 5.713l-.999 3.647 3.906-.958z"/></svg>
-                    Quero conversar no WhatsApp
+                    QUERO AJUDA NESSA JORNADA
                 </a>
             </div>
 
@@ -300,9 +1262,9 @@
     <div class="shape-bg"></div>
     <picture>
         <!-- Imagem para Mobile (telas até 768px) -->
-        <source srcset="img/ana-lucia-mobile.webp" media="(max-width: 768px)">
+        <source srcset="img/foto-ana-lucia-mobile.webp" media="(max-width: 768px)">
         <!-- Imagem padrão para Desktop -->
-        <img src="img/ana-lucia.webp" alt="Ana Lúcia Seixas">
+        <img src="img/foto-ana-lucia.webp" alt="Ana Lúcia Seixas">
     </picture>
 </div>
         </div>
@@ -311,7 +1273,7 @@
     <!-- SEGUNDA DOBRA -->
     <section class="testimonials">
         <h2 class="testimonials-titulo">
-            Mulheres que decidiram olhar para dentro com apoio profissional contam como foi:
+            Pessoas que passaram pelo processo terapêutico relatam mudanças percebidas ao longo do acompanhamento:
         </h2>
 
         <div class="slider-wrapper">
@@ -378,6 +1340,483 @@
         </div>
     </section>
 
+    <!-- TERCEIRA DOBRA AJUSTADA -->
+    <section class="situations">
+        <h2 class="situations-titulo">
+            Talvez você procure terapia porque percebe que suas emoções ocupam espaço demais na sua rotina, nas relações ou nas decisões. 
+        </h2>
+
+        <div class="situations-container">
+            <!-- Fileira de 3 -->
+            <div class="row-top">
+                <div class="situation-card">
+                    <p>“Vivo com medo de que algo ruim aconteça, mesmo quando não existe um perigo concreto.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Sinto uma insegurança constante e duvido da minha capacidade de lidar com situações comuns.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Às vezes, a ansiedade aumenta tanto que sinto falta de ar, taquicardia, tremores ou a sensação de que vou perder o controle.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Tenho me sentido triste, desanimado ou angustiado por longos períodos.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Coisas que antes faziam sentido ou davam prazer parecem ter perdido a importância.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Mesmo cercado de pessoas, sinto um vazio difícil de preencher.”</p>
+                </div>
+                
+            </div>
+
+            <!-- Fileira de 2 (Centralizada) -->
+            <div class="row-bottom">
+                <div class="situation-card">
+                    <p>“Minhas emoções ficam muito intensas e depois me culpo pelo que falei ou fiz.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Uma crítica, uma frustração ou um sinal de rejeição pode me desorganizar por horas ou dias.”</p>
+                </div>
+                <div class="situation-card">
+                    <p>“Entendo racionalmente o que acontece, mas emocionalmente continuo preso aos mesmos pensamentos e padrões.”</p>
+                </div>
+            </div>
+        </div>
+        <div class="diagnosis-footer">
+                    Se você se reconheceu, o que você sente tem nome e precisa ser trabalhado para o fortalecimento da sua saúde mental. 
+                </div>
+    </section>
+        
+    <!-- QUARTA DOBRA -->
+    <section class="attention">
+        <div class="attention-container">
+            <div class="attention-content">
+                <h2>E enquanto isso segue sem atenção...</h2>
+                <div class="attention-text">
+                    <p>Você se cobra por não conseguir "só relaxar", como se fosse falta de esforço seu.</p>
+                    <p>O cansaço emocional começa a aparecer no trabalho, no sono e na paciência com quem você ama.</p>
+                    <p>E o padrão que se repete há anos vai ficando mais automático, mais difícil de enxergar de dentro.</p>
+                </div>
+                <a href="#" class="btn-teal">
+                    Não precisa continuar assim. Na psicoterapia, a sua fala importa e você encontrará uma escuta ativa para descobrirmos juntos a origem de tudo isso.
+                </a>
+            </div>
+
+            <div class="attention-image-wrapper">
+                <!-- Substituir pela imagem da mulher pensativa -->
+                <img src="img/mulher.webp" alt="Reflexão e Atenção">
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 5: DIAGNÓSTICO -->
+    <section class="diagnosis">
+        <div class="diagnosis-header">
+            <span>Diagnóstico</span>
+            <h2>ENTENDA O QUE ESTÁ ACONTECENDO</h2>
+            <p>O problema não está na sua falta de esforço. Está em tentar resolver de forma inadequada:</p>
+        </div>
+
+        <div class="diagnosis-grid">
+            <div class="diagnosis-item">
+                <h3>Força de vontade organiza hábitos, não padrões emocionais.</h3>
+                <p>Padrões que se formaram ao longo de anos não respondem a "decidir mudar". Eles têm raízes profundas, na infância.</p>
+            </div>
+            
+            <div class="diagnosis-item">
+                <h3>Autoajuda trata o sintoma, não a origem.</h3>
+                <p>Você alivia por uns dias e depois ele retorna, porque a causa continua intocada.</p>
+            </div>
+
+            <div class="diagnosis-item-center">
+                <p style="padding-top: 20px; font-weight: 600;">O seu cansaço vem de lutar contra algo que você ainda não compreendeu totalmente.</p>
+            </div>
+        </div>
+
+        <div class="diagnosis-footer">
+            "Não é sobre ser mais forte. É sobre finalmente olhar no lugar certo."
+        </div>
+    </section>
+
+    <!-- DOBRA 6: OPORTUNIDADE -->
+    <section class="opportunity">
+        <div class="opportunity-content">
+            <!-- Agora como Título (H2) -->
+            <h2 class="opportunity-title">
+                Buscar terapia deixou de ser sinal de crise e passou a ser escolha de quem quer se entender melhor.
+            </h2>
+            
+            <p>
+                É começar a partir de um lugar diferente, com um caminho estruturado ao seu lado.
+            </p>
+            
+            <span class="opportunity-highlight">
+                O momento certo raramente chega sozinho. Ele começa quando você decide.
+            </span>
+        </div>
+
+    </section>
+
+    <!-- DOBRA 7: O SERVIÇO COMO SOLUÇÃO -->
+    <section class="service-solution">
+        <div class="service-container">
+            <div class="service-content">
+                <h2>
+                    A saída está em ter um espaço dedicado exclusivamente a você, para entender o que está por trás do que você sente e como esses padrões se formaram.
+                </h2>
+                
+                <div class="service-text">
+                    <p>
+                        No processo de psicoterapia, com o auxílio da <strong>Terapia do Esquema</strong>, podemos chegar às necessidades emocionais básicas não atendidas e identificá-las.
+                    </p>
+                    <p>
+                        <strong>Posso te ajudar em cada passo desta jornada.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="service-image-wrapper">
+                <!-- Substituir pela imagem do consultório ou da psicóloga em atendimento -->
+                <img src="img/logo-ana-lucia.webp" alt="Espaço de acolhimento Ana Lúcia Seixas">
+            </div>
+        </div>
+    </section>]
+
+    <!-- DOBRA 8: ABORDAGEM / METODOLOGIA -->
+    <section class="methodology">
+        <div class="methodology-header">
+            <h2>POR QUE A TERAPIA DO ESQUEMA PODE FAZER DIFERENÇA NO SEU CASO:</h2>
+        </div>
+
+        <div class="methodology-grid">
+            <!-- Passo 01 -->
+            <div class="method-card">
+                <span class="method-number">01</span>
+                <h3>Mapeamento dos padrões emocionais</h3>
+                <p>Identificação de gatilhos, reações automáticas, modos de enfrentamento e ciclos que se repetem em relacionamentos, trabalho e autoestima.</p>
+            </div>
+
+            <!-- Passo 02 -->
+            <div class="method-card">
+                <span class="method-number">02</span>
+                <h3>Compreensão da origem dos esquemas</h3>
+                <p>Investigação clínica de como certos padrões foram formados e por que continuam sendo ativados no presente.</p>
+            </div>
+
+            <!-- Passo 03 -->
+            <div class="method-card">
+                <span class="method-number">03</span>
+                <h3>Trabalho vivencial e emocional</h3>
+                <p>Uso de recursos da Terapia do Esquema para acessar emoções, reorganizar respostas internas e desenvolver novas formas de lidar com situações difíceis.</p>
+            </div>
+
+            <!-- Passo 04 -->
+            <div class="method-card">
+                <span class="method-number">04</span>
+                <h3>Aplicação no cotidiano</h3>
+                <p>Construção gradual de respostas mais reguladas, com mais consciência, responsabilidade e estabilidade emocional.</p>
+            </div>
+        </div>
+
+        <!--<div class="methodology-footer">
+            Cada etapa tem um propósito claro. Você sabe onde está e para onde o processo caminha.
+        </div>-->
+    </section>
+
+    <!-- DOBRA 9: COMO FUNCIONA O ATENDIMENTO -->
+    <section class="practical-info">
+        <div class="practical-header">
+            <h2>COMO FUNCIONA NA PRÁTICA</h2>
+        </div>
+
+        <div class="practical-list">
+            <!-- Item 1 -->
+            <div class="practical-step">
+                <div class="step-index">1</div>
+                <div class="step-text">
+                    <h3>Primeiro contato</h3>
+                    <p>Você fala diretamente pelo WhatsApp. Tira suas dúvidas e, se precisar, uma ligação rápida de cerca de 10 minutos para alinhar o que faz sentido para você.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="practical-step">
+                <div class="step-index">2</div>
+                <div class="step-text">
+                    <h3>Agendamento</h3>
+                    <p>Verificamos um horário adequado para ambas as partes, e definimos se será online ou presencial.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="practical-step">
+                <div class="step-index">3</div>
+                <div class="step-text">
+                    <h3>As sessões</h3>
+                    <p>Encontros de 50 minutos, em acompanhamento mensal, com 4 ou 5 sessões por mês, num espaço reservado só para você.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="practical-step">
+                <div class="step-index">4</div>
+                <div class="step-text">
+                    <h3>Continuidade</h3>
+                    <p>Se um imprevisto acontecer, a sessão pode ser reposta em até uma semana. O pagamento é via PIX, até o dia 10 de cada mês.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 10: DIFERENCIAIS -->
+    <section class="differentials">
+        <div class="differentials-header">
+            <h2>Além das sessões, você conta com:</h2>
+        </div>
+
+        <div class="differentials-grid">
+            <!-- Diferencial 1 -->
+            <div class="diff-card">
+                <div class="diff-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <h3>30 anos de bagagem profissional e humana</h3>
+                <p>Experiência que enxerga o que muitas vezes passa despercebido.</p>
+            </div>
+
+            <!-- Diferencial 2 -->
+            <div class="diff-card">
+                <div class="diff-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3>Leitura prática de comportamento e relações</h3>
+                <p>Duas décadas anteriores em RH que aprofundam o olhar sobre conflitos e padrões afetivos.</p>
+            </div>
+
+            <!-- Diferencial 3 -->
+            <div class="diff-card">
+                <div class="diff-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <h3>Técnicas vivenciais da Terapia do Esquema</h3>
+                <p>Você não só fala do problema, você trabalha a emoção onde ela mora.</p>
+            </div>
+
+            <!-- Diferencial 4 -->
+            <div class="diff-card">
+                <div class="diff-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <h3>Sigilo garantido pelo código de ética profissional</h3>
+                <p>Um espaço seguro, confidencial e sem julgamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 11: PARA QUEM É -->
+    <section class="for-whom">
+        <div class="for-whom-header">
+            <h2>PARA QUEM É</h2>
+            <p>Esse atendimento é para você que...</p>
+        </div>
+
+        <div class="for-whom-grid">
+            <!-- Card 1 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Sente emoções intensas e têm dificuldade de voltar ao equilíbrio depois de uma situação difícil.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Vive ansiedade, autocrítica, culpa ou medo de rejeição com frequência.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Percebe padrões repetitivos em relacionamentos afetivos, familiares ou profissionais.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Têm dificuldade de se posicionar sem culpa, raiva ou medo de perder o vínculo.</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Oscila entre se cobrar demais, se fechar, agradar ou reagir impulsivamente.</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="for-whom-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <p>Possui diagnóstico ou traços de Transtorno de Personalidade Borderline e busca acompanhamento psicológico contínuo.</p>
+            </div>
+        </div>
+
+        <div class="for-whom-conclusion">
+            <p>Se você se reconheceu em pelo menos duas situações, esse pode ser o seu próximo passo.</p>
+        </div>
+    </section>
+
+    <!-- DOBRA 12: ANCORAGEM DE VALOR -->
+    <section class="value-anchor">
+        <h2>Antes de pensar no investimento, pense no que esse padrão já custou:</h2>
+        <div class="value-grid">
+            <div class="value-item"><p>Quantas oportunidades você deixou passar por não se sentir capaz ou por não conseguir se posicionar?</p></div>
+            <div class="value-item"><p>Quanto da sua energia se foi em noites remoendo, em relações que se repetem, em cobranças que não dão trégua?</p></div>
+            <div class="value-item"><p>Quanto tempo você já investiu tentando resolver sozinho o que continua voltando?</p></div>
+            <div class="value-item"><p>O que pesa mais: o cuidado com você agora, ou mais um ano vivendo o mesmo ciclo?</p></div>
+        </div>
+        <p class="value-conclusion">Os valores e as condições são conversados diretamente com a Ana Lúcia, de forma clara, no primeiro contato.</p>
+    </section>
+
+    <!-- DOBRA 13: OFERTA + CTA -->
+    <section class="offer">
+        <h2>COMECE PELO PRIMEIRO PASSO</h2>
+        <p class="offer-description">O acompanhamento é feito de forma contínua e semanal, com 4 ou 5 sessões de 50 minutos por mês.</p>
+        
+        <div class="formats-grid">
+            <div class="format-card"><strong>Online</strong> de onde você estiver, com a mesma presença e sigilo.</div>
+            <div class="format-card"><strong>Presencial</strong>Rio de Janeiro </div>
+        </div>
+
+        <a href="https://api.whatsapp.com/send/?phone=5521981196944&text=Quero+falar+com+a+psic%C3%B3loga&type=phone_number&app_absent=0" target="_blank" class="btn-whatsapp"> ENTRE EM CONTATO</a>
+
+        <div class="steps-box">
+            <h3>Como funciona a partir daqui:</h3>
+            <div class="step-line"><span class="step-num">1.</span>Você manda uma mensagem no WhatsApp.</div>
+            <div class="step-line"><span class="step-num">2.</span>Esclarece as dúvidas e, se possível, faremos uma ligação rápida de alinhamento.</div>
+            <div class="step-line"><span class="step-num">3.</span>Agenda sua primeira sessão.</div>
+        </div>
+    </section>
+
+    <!-- DOBRA 14: RISCO ZERO (VERSÃO ATRAENTE) -->
+    <section class="zero-risk">
+        <div class="zero-risk-container">
+            <h2>O primeiro passo não exige compromisso</h2>
+
+            <div class="zero-risk-benefits">
+                <!-- Benefício 1 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.9A8.38 8.38 0 0 1 4 11.3a8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </div>
+                    <p><strong>Começar é simples e sem pressão. Você fala primeiro pelo <b>WhatsApp</b>, tira todas as suas dúvidas e, se ainda precisar, conversa por alguns minutos ao telefone antes de qualquer decisão.</p>
+                </div>
+
+                <!-- Benefício 2 -->
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <p>Tudo o que você compartilhar é protegido pelo <strong>sigilo profissional</strong>. E se um imprevisto surgir, a sessão pode ser reposta em até uma semana.</p>
+                </div>
+            </div>
+
+            <div class="zero-risk-highlight">
+                O único compromisso do primeiro contato é <strong>começar a conversa.</strong>
+            </div>
+
+            <br>
+            <a href="https://api.whatsapp.com/send/?phone=5521981196944&text=Quero+falar+com+a+psic%C3%B3loga&type=phone_number&app_absent=0" target="_blank" class="btn-gold">TIRAR MINHAS DÚVIDAS NO WHATSAPP</a>
+        </div>
+    </section>
+
+    <!-- DOBRA 15: AUTORIDADE -->
+    <section class="authority">
+        <div class="auth-container">
+            <div class="auth-image">
+                <img src="img/card-autoridade.webp" alt="Ana Lúcia Seixas" style="width:100%; border-radius:40px; border: 6px solid var(--mostarda); box-sizing: border-box; display: block;">
+            </div>
+            <div class="auth-text">
+                <h2>QUEM VAI TE ATENDER</h2>
+                <p>Sou Ana Lúcia Gaio Seixas, Psicóloga formada há quase 30 anos e com CRP ativo. Iniciei minha trajetória profissional na área de Recursos Humanos, e nela permaneci por 20 anos. Ao longo desse período, as habilidades de  gestão de pessoas, comportamento organizacional e desenvolvimento humano foram continuamente desenvolvidas.</p>
+                <p>Há 10 anos, realizei a transição para área clínica, onde atuo com atendimento psicológico - integrando a vivência adquirida ao cuidado com a saúde mental e emocional dos pacientes.</p>
+                <p>Essa transição proporcionou  uma maior conexão, singularidade e proximidade em cada caso que cuido, contribuindo para um atendimento acolhedor e humanizado à você.</p>
+                <p>Sigo em formação contínua e aprofundamento em técnicas vivenciais da Terapia do Esquema.</p>
+                <ul class="cert-list">
+                    <li>Terapia do Esquema na Prática Clínica (NUAPP)</li>
+                    <li>Neurociência e Terapia do Esquema (NUAPP)</li>
+                    <li>Imersão Sessões Transformadoras com base na Terapia do Esquema (Psilink / IAHTC, presencial em São Paulo)</li>
+                    <li>Capacitação em Técnica de Imagem com a participação do professor Remco van der Wijngaart, referência internacional em técnicas vivenciais (Psilink / IAHTC, em andamento)</li>
+                </ul>
+
+                <span class="auth-quote">"Meu compromisso é oferecer um espaço ético, humano e seguro para você se entender e crescer, no seu tempo."</span>
+                <p style="margin-top:20px; font-weight:700;">CRP 05/24657</p>
+                <a href="https://api.whatsapp.com/send/?phone=5521981196944&text=Quero+falar+com+a+psic%C3%B3loga&type=phone_number&app_absent=0" target="_blank" class="btn-whatsapp" style="margin-top:20px;">QUERO CONVERSAR NO WHATSAPP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 16: FAQ -->
+    <section class="faq">
+        <h2>PERGUNTAS FREQUENTES</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">O atendimento é online ou presencial? <span>+</span></div>
+                <div class="faq-answer">Os dois. Pode ser online, de onde você estiver, ou presencial no Rio de Janeiro. Você escolhe o que é melhor na sua rotina.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Quanto tempo dura cada sessão e qual a frequência? <span>+</span></div>
+                <div class="faq-answer">Cada sessão dura 50 minutos. O acompanhamento é semanal, totalizando 4 ou 5 sessões por mês.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como funciona o primeiro contato? <span>+</span></div>
+                <div class="faq-answer">É feito pelo WhatsApp. Você tira suas dúvidas e, se ainda restar alguma, é possível uma ligação rápida de cerca de 10 minutos antes de agendar.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">As sessões são sigilosas? <span>+</span></div>
+                <div class="faq-answer">Sim. Tudo é protegido pelo sigilo profissional garantido pelo código de ética da psicologia.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como é o pagamento? Atende por convênio?<span>+</span></div>
+                <div class="faq-answer">O pagamento é via PIX, até o dia 10 de cada mês. O atendimento é particular, sem convênio.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">E se eu precisar faltar a uma sessão? <span>+</span></div>
+                <div class="faq-answer">Em caso de imprevisto, a sessão pode ser reposta em até uma semana.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como sei se a terapia é para mim?<span>+</span></div>
+                <div class="faq-answer">Se você sente que repete padrões, vive um sofrimento emocional recorrente ou quer se entender melhor, vale começar a conversa pelo WhatsApp sem compromisso.</div>
+            </div>
+        </div>
+            
+        </div>
+    </section>
+
+    <!-- DOBRA 17: RODAPÉ -->
+    <footer>
+        <span class="footer-logo">Ana Lúcia Seixas</span>
+        <div class="footer-info">
+            <p>Psicóloga Clínica | Terapia do Esquema</p>
+            <p>CRP 05/24657</p>
+            <p>Atendimento particular, online e presencial no Rio de Janeiro</p>
+            <p>Contato: WhatsApp  +55 21 98119-6944</p>
+            <span>Rio de Janeiro, RJ - Brasil</span>
+        </div>
+        <p class="copyright">© 2026 Ana Lúcia Seixas. Todos os direitos reservados.| Realizado por RSS Digital</p>
+       <!-- https://rssdigital.com.br/ -->
+    </footer>
+
     <script>
         // Lógica simples para o slider de depoimentos
         const slider = document.getElementById('slider');
@@ -402,6 +1841,19 @@
                 dot.classList.toggle('active', i === index);
             });
         });
+
+        // Lógica do FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // (Mantenha o seu código anterior do Slider aqui também)
+
     </script>
 </body>
 </html>
