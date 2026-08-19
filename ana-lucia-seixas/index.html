@@ -158,25 +158,41 @@
             justify-content: center;
             gap: 20px;
             position: relative;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .cards-container {
+       .cards-container {
             display: flex;
             gap: 20px;
-            overflow: hidden;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
             padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .cards-container::-webkit-scrollbar {
+            display: none;
         }
 
         .testimonial-card {
-            background: #fff;
-            border-radius: 15px;
-            min-width: 340px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: left;
-            border: 1px solid #eee;
-        }
+        background: #fff;
+        border-radius: 15px;
+
+    /* Tamanho fixo no desktop */
+        flex: 0 0 380px;
+        width: 380px;
+        min-width: 380px;
+        max-width: 380px;
+
+        scroll-snap-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        text-align: left;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+    }
 
         .card-header {
             background-color: var(--azul-escuro);
@@ -198,7 +214,7 @@
         }
 
         .card-body {
-            padding: 30px 20px;
+            padding: 50px 20px;
         }
 
         .card-body p {
@@ -241,40 +257,95 @@
             background-color: var(--verde-primario);
         }
 
-        /* Responsividade */
+        /* RESPONSIVIDADE */
 
-    @media (max-width: 992px) {
-        .hero-container {
-            grid-template-columns: 1fr;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .hero-content {
-            order: 1;
-        }
+@media (max-width: 992px) {
 
-        .hero-image-wrapper { 
-            order: 2;
-            margin-top: 50px; 
-            margin-bottom: 0;
-            display: block; /* Garante visibilidade */
-            width: 100%;
-        }
-
-        /* Adicione este bloco abaixo */
-        .hero-image-wrapper img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .hero-titulo { font-size: 2.2rem; }
-        .hero-description { margin-left: auto; margin-right: auto; }
-        .testimonial-card { min-width: 100%; }
+    /* HERO */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
     }
+
+    .hero-content {
+        order: 1;
+    }
+
+    .hero-image-wrapper {
+        order: 2;
+        margin-top: 50px;
+        display: block;
+        width: 100%;
+    }
+
+    .hero-image-wrapper img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-titulo {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* =========================================
+       CARROSSEL DE DEPOIMENTOS - MOBILE
+       ========================================= */
+
+    .slider-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        display: block;
+        overflow: hidden;
+    }
+
+    .nav-btn {
+        display: none !important;
+    }
+
+    .cards-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 7.5%;
+        box-sizing: border-box;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .testimonial-card {
+        flex: 0 0 85vw;
+        width: 85vw;
+        min-width: 85vw !important;
+        max-width: 85vw;
+        margin: 0;
+        box-sizing: border-box;
+        scroll-snap-align: center;
+    }
+
+    .card-body {
+        padding: 40px 20px;
+    }
+
+    .testimonials-titulo {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+}
 
     /* --- TERCEIRA DOBRA: SITUAÇÕES (TODOS HORIZONTAIS) --- */
         .situations {
