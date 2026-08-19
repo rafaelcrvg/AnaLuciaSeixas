@@ -158,25 +158,41 @@
             justify-content: center;
             gap: 20px;
             position: relative;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .cards-container {
+       .cards-container {
             display: flex;
             gap: 20px;
-            overflow: hidden;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
             padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .cards-container::-webkit-scrollbar {
+            display: none;
         }
 
         .testimonial-card {
-            background: #fff;
-            border-radius: 15px;
-            min-width: 340px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: left;
-            border: 1px solid #eee;
-        }
+        background: #fff;
+        border-radius: 15px;
+
+    /* Tamanho fixo no desktop */
+        flex: 0 0 380px;
+        width: 380px;
+        min-width: 380px;
+        max-width: 380px;
+
+        scroll-snap-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        text-align: left;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+    }
 
         .card-header {
             background-color: var(--azul-escuro);
@@ -198,7 +214,7 @@
         }
 
         .card-body {
-            padding: 30px 20px;
+            padding: 50px 20px;
         }
 
         .card-body p {
@@ -241,40 +257,95 @@
             background-color: var(--verde-primario);
         }
 
-        /* Responsividade */
+        /* RESPONSIVIDADE */
 
-    @media (max-width: 992px) {
-        .hero-container {
-            grid-template-columns: 1fr;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .hero-content {
-            order: 1;
-        }
+@media (max-width: 992px) {
 
-        .hero-image-wrapper { 
-            order: 2;
-            margin-top: 50px; 
-            margin-bottom: 0;
-            display: block; /* Garante visibilidade */
-            width: 100%;
-        }
-
-        /* Adicione este bloco abaixo */
-        .hero-image-wrapper img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .hero-titulo { font-size: 2.2rem; }
-        .hero-description { margin-left: auto; margin-right: auto; }
-        .testimonial-card { min-width: 100%; }
+    /* HERO */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
     }
+
+    .hero-content {
+        order: 1;
+    }
+
+    .hero-image-wrapper {
+        order: 2;
+        margin-top: 50px;
+        display: block;
+        width: 100%;
+    }
+
+    .hero-image-wrapper img {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-titulo {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* =========================================
+       CARROSSEL DE DEPOIMENTOS - MOBILE
+       ========================================= */
+
+    .slider-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        display: block;
+        overflow: hidden;
+    }
+
+    .nav-btn {
+        display: none !important;
+    }
+
+    .cards-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px 7.5%;
+        box-sizing: border-box;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .testimonial-card {
+        flex: 0 0 85vw;
+        width: 85vw;
+        min-width: 85vw !important;
+        max-width: 85vw;
+        margin: 0;
+        box-sizing: border-box;
+        scroll-snap-align: center;
+    }
+
+    .card-body {
+        padding: 40px 20px;
+    }
+
+    .testimonials-titulo {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
+}
 
     /* --- TERCEIRA DOBRA: SITUAÇÕES (TODOS HORIZONTAIS) --- */
         .situations {
@@ -1283,47 +1354,69 @@
                 <!-- Card 1 -->
                 <div class="testimonial-card">
                     <div class="card-header">
-                        <h4>Susana Pereira</h4>
-                        <span>42 anos | Junho - 2026</span>
+                        <h4>CT</h4>
+                        <span>55 anos</span>
                     </div>
                     <div class="card-body">
-                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <p>"Comecei a ver as coisas de forma diferente, a perceber como eu mesma complicava coisas simples e colocava um peso que não tinha, e o mais importante, eu aprendi a me controlar, a ver as coisas com outro olhar, voltei a sair de casa, socializar, a sorrir...
+                            Hoje sigo usando as técnicas que aprendi. Tenho me saído bem, e me relembro diariamente das sessões de terapia."
+                        </p>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
 
-                <!-- Card 2 (Clone para demonstração) -->
+                <!-- Card 2 -->
                 <div class="testimonial-card">
                     <div class="card-header">
-                        <h4>Susana Pereira</h4>
-                        <span>42 anos | Junho - 2026</span>
+                        <h4>MM</h4>
+                        <span>30 anos </span>
                     </div>
                     <div class="card-body">
-                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <p>"Sempre me senti muito à vontade para falar sobre minhas questões, pois confiava nela como profissional, gostava muito do trabalho que ela desenvolvia e tinha afinidade.
+                            <br>A terapia e o autoconhecimento só trouxeram benefícios para a minha vida. Aprendi a me conhecer melhor, identificar meus gatilhos, entender meus sentimentos, lidar com situações que antes eu não conseguiria enfrentar, estabelecer limites e acreditar mais em mim."
+                        </p>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
 
-                <!-- Card 3 (Clone para demonstração) -->
+                <!-- Card 3 -->
                 <div class="testimonial-card">
                     <div class="card-header">
-                        <h4>Susana Pereira</h4>
-                        <span>42 anos | Junho - 2026</span>
+                        <h4>RB</h4>
+                        <span>53 anos</span>
                     </div>
                     <div class="card-body">
-                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <p>"A Ana foi uma grande aliada e me sentia extremamente à vontade em todo o processo terapêutico. Sempre soube conduzir os nossos encontros de forma que eu me sentisse mais aliviada e menos tensa.
+                            Foi uma pessoa e profissional importante, que sempre vou lembrar, pela ética, escuta ativa e pelos aconselhamentos favoráveis à minha saúde mental."
+                        </p>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
 
-                <!-- Card 3 (Clone para demonstração) -->
+                <!-- Card 4 -->
                 <div class="testimonial-card">
                     <div class="card-header">
-                        <h4>Susana Pereira</h4>
-                        <span>42 anos | Junho - 2026</span>
+                        <h4>LS</h4>
+                        <span>42 anos</span>
                     </div>
                     <div class="card-body">
-                        <p>"Eu achava que era só ansiedade e que ia passar. Na terapia entendi que era um padrão antigo se repetindo. Hoje reconheço quando ele aparece e não fico mais refém dele."</p>
+                        <p>"A terapia me ajudou a entender de onde vinha a minha ansiedade, reconhecer os sinais e aprender a lidar com ela antes que uma crise acontecesse. Hoje consigo controlar muito melhor esses momentos, e isso foi uma das maiores conquistas que tive.
+                            Também aprendi a reconhecer meus limites, dizer não e entender melhor quem eu sou e o que faz sentido para mim."
+                        </p>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <h4>RC</h4>
+                        <span>40 anos</span>
+                    </div>
+                    <div class="card-body">
+                        <p>"Desde o início, me senti muito à vontade para conversar e me abrir, porque a psicóloga me proporcionou um espaço acolhedor e sem julgamentos.
+                            Fomos trabalhando, aos poucos, pontos que naquele momento eram importantes para mim, e sou muito grata por todo o processo e por tudo que consegui evoluir."
+                        </p>
                         <div class="stars">★★★★★</div>
                     </div>
                 </div>
