@@ -41,6 +41,81 @@
             overflow-x: hidden;
         }
 
+
+       /* --- BARRA DE CTA FIXA (DESKTOP) --- */
+.header-cta-bar {
+    position: fixed;
+    top: 0; /* Fixa no topo no Desktop */
+    left: 0;
+    width: 100%;
+    background-color: var(--verde-primario);
+    z-index: 9999;
+    padding: 20px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.cta-bar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%; /* Garante respiro nas laterais */
+    display: flex;
+    justify-content: space-between; /* NOME À ESQUERDA | BOTÃO À DIREITA */
+    align-items: center;
+}
+
+.cta-brand-name {
+    color: var(--branco);
+    font-family: var(--font-texto); /* Mudança para Comfortaa para maior legibilidade */
+    font-size: 1.2rem;
+    font-weight: 700; /* Mais negrito para destacar no fundo verde */
+    letter-spacing: 0.5px;
+    text-transform: none;
+}
+
+.cta-btn-whatsapp {
+    background-color: var(--mostarda);
+    color: var(--azul-escuro);
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Espaço para o conteúdo não ficar embaixo da barra no Desktop */
+body {
+    padding-top: 70px; 
+}
+
+/* --- VERSÃO MOBILE (BARRA NO RODAPÉ) --- */
+@media (max-width: 992px) {
+    .header-cta-bar {
+        top: auto; /* Remove do topo */
+        bottom: 0; /* Fixa no rodapé */
+    }
+
+    body {
+        padding-top: 0; /* Remove o espaço do topo no mobile */
+        padding-bottom: 80px; /* Adiciona espaço no fundo para a barra não cobrir o rodapé */
+    }
+
+    .cta-brand-name {
+        font-size: 0.95rem;
+        font-family: var(--font-texto); /* Mantém a consistência com Comfortaa */
+        font-weight: 700;
+        line-height: 1.2;
+        max-width: 50%; /* Evita que o nome empurre o botão para fora em telas muito pequenas */
+    }
+
+    .cta-btn-whatsapp {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+    }
+}
+
+
         /* --- PRIMEIRA DOBRA: HERO --- */
         .hero {
             background-color: var(--verde-primario);
@@ -73,12 +148,10 @@
 .main-logo {
     display: block;
     width: 100%;
-    /* Ajuste o max-width abaixo para o tamanho visual que você deseja que o logo tenha */
-    max-width: 250px; 
+    max-width: 250px;
     height: auto;
 }
 
-/* Ajuste opcional para mobile para centralizar o logo se preferir */
 @media (max-width: 992px) {
     .logo-header {
         display: flex;
@@ -1336,6 +1409,16 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K899Z4GF"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <!-- BARRA DE CTA FIXA -->
+<header class="header-cta-bar">
+    <div class="cta-bar-container">
+        <span class="cta-brand-name">Ana Lúcia Gaio Seixas | CRP 05/24657</span>
+        <a href="https://api.whatsapp.com/send/?phone=5521981196944&text=Quero+falar+com+a+psic%C3%B3loga" target="_blank" class="cta-btn-whatsapp">
+            FALAR COM A PSICÓLOGA
+        </a>
+    </div>
+</header>
 
     <!-- PRIMEIRA DOBRA -->
     <section class="hero">
