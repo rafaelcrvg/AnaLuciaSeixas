@@ -1387,17 +1387,18 @@ body {
         .faq-item.active .faq-question { color: var(--verde-primario); }
 
         /* --- DOBRA 17: RODAPÉ --- */
-        footer {
-            padding: 60px 8% 30px;
-            background-color: var(--azul-escuro);
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer-logo { color: var(--branco); font-family: var(--font-titulo); font-size: 1.5rem; margin-bottom: 20px; display: block; }
-        .footer-info p { margin-bottom: 10px; }
-        .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer { min-height: 600px; padding: 0 clamp(32px, 8vw, 154px); background: var(--azul-escuro); color: #f2f2f2; display: grid; grid-template-columns: minmax(260px, 1fr) 1px minmax(420px, 1fr); align-items: center; column-gap: clamp(40px, 7vw, 136px); text-align: left; font-size: 1rem; }
+        .footer-profile-art { grid-column: 1; grid-row: 1; align-self: start; justify-self: center; margin-top: 50px; }
+        .footer-logo { grid-column: 1; grid-row: 1; align-self: start; justify-self: center; margin-top: 330px; z-index: 1; color: #f2f2f2; font-family: 'Segoe UI', var(--font-texto), sans-serif; font-size: clamp(1.8rem, 2.3vw, 2.4rem); font-weight: 700; white-space: nowrap; }
+        .footer-portrait { display: block; width: clamp(190px, 20vw, 270px); aspect-ratio: 1; object-fit: cover; object-position: center; border-radius: 50%; border: 14px solid var(--mostarda); }
+        .footer-divider { grid-column: 2; grid-row: 1; width: 1px; height: 372px; margin-top: 50px; background: rgba(255,255,255,0.95); }
+        .footer-credentials { grid-column: 1; grid-row: 1; align-self: start; justify-self: center; margin-top: 376px; display: flex; flex-direction: column; align-items: center; gap: 7px; color: #f2f2f2; font-family: 'Segoe UI', var(--font-texto), sans-serif; font-size: 1.08rem; font-weight: 400; }
+        .footer-info { grid-column: 3; grid-row: 1; align-self: start; margin-top: 125px; display: flex; flex-direction: column; gap: 10px; }
+        .footer-info p, .footer-info span { margin: 0; }
+        .footer-info .footer-heading { font-size: clamp(1.45rem, 2vw, 2.2rem); margin-bottom: 8px; }
+        .footer-info .footer-detail { font-family: 'Segoe UI', var(--font-texto), sans-serif; font-size: 1rem; }
+        .copyright { grid-column: 3; grid-row: 1; align-self: start; margin: 292px 0 0; font-size: 1rem; line-height: 1.5; }
+        @media (max-width: 768px) { footer { min-height: 0; width: 100%; padding: 48px 20px 36px; display: flex; flex-direction: column; gap: 24px; text-align: center; } .footer-profile-art { order: 1; margin: 0; align-self: center; } .footer-portrait { width: min(48vw, 190px); border-width: 10px; } .footer-logo { order: 2; align-self: center; margin: 0; font-size: 1.8rem; text-align: center; } .footer-credentials { order: 3; align-self: center; margin: 0; gap: 6px; font-size: 1rem; font-weight: 400; text-align: center; } .footer-divider { order: 4; width: 78%; height: 1px; margin: 8px 0 0; } .footer-info { order: 5; width: 100%; margin: 0; align-items: center; gap: 8px; } .footer-info .footer-heading { font-size: 1.7rem; margin-bottom: 8px; } .footer-info .footer-detail { max-width: 350px; font-size: .95rem; line-height: 1.45; font-weight: 400; text-align: center; } .copyright { order: 6; width: 100%; max-width: 350px; margin: 8px 0 0; font-size: .9rem; line-height: 1.45; text-align: center; } }
 
         /* Responsividade FAQ e Authority */
         @media (max-width: 992px) {
@@ -1523,7 +1524,7 @@ body {
                 <div class="testimonial-card">
                     <div class="card-header">
                         <h4>LS</h4>
-                        <span>42 anos</span>
+                        <span>24 anos</span>
                     </div>
                     <div class="card-body">
                         <p>"A terapia me ajudou a entender de onde vinha a minha ansiedade, reconhecer os sinais e aprender a lidar com ela antes que uma crise acontecesse. Hoje consigo controlar muito melhor esses momentos, e isso foi uma das maiores conquistas que tive.
@@ -1981,12 +1982,17 @@ body {
                 <p>Sou Ana Lúcia Gaio Seixas, Psicóloga formada há quase 30 anos e com CRP ativo. Iniciei minha trajetória profissional na área de Recursos Humanos, e nela permaneci por 20 anos. Ao longo desse período, as habilidades de  gestão de pessoas, comportamento organizacional e desenvolvimento humano foram continuamente desenvolvidas.</p>
                 <p>Há 10 anos, realizei a transição para área clínica, onde atuo com atendimento psicológico - integrando a vivência adquirida ao cuidado com a saúde mental e emocional dos pacientes.</p>
                 <p>Essa transição proporcionou  uma maior conexão, singularidade e proximidade em cada caso que cuido, contribuindo para um atendimento acolhedor e humanizado à você.</p>
-                <p>Sigo em formação contínua e aprofundamento em técnicas vivenciais da Terapia do Esquema.</p>
+                <p>Sigo em formação contínua, aprofundamento em técnicas vivenciais da Terapia do Esquema e na TCC  - Terapia Cognitivo-Comportamental</p>
                 <ul class="cert-list">
-                    <li>Terapia do Esquema na Prática Clínica (NUAPP)</li>
-                    <li>Neurociência e Terapia do Esquema (NUAPP)</li>
-                    <li>Imersão Sessões Transformadoras com base na Terapia do Esquema (Psilink / IAHTC, presencial em São Paulo)</li>
-                    <li>Capacitação em Técnica de Imagem com a participação do professor Remco van der Wijngaart, referência internacional em técnicas vivenciais (Psilink / IAHTC, em andamento)</li>
+                    <li>Terapia do Esquema na Prática Clínica e Neurociência ( NUAPP)</li>
+                    <li>Terapia do Esquema,  as Técnicas  e os Transtornos de Personalidade -  Borderline e Narcisista   ( Grupo Wainer Psicologia)</li>
+                    <li>Capacitação em Técnica de Imagem com a participação do professor Remco Van Der Wijngaart, referência internacional em técnicas vivenciais (Psilink / IAHTC, após Técnica de Imagem,  
+                        " e em Técnica de Cadeiras " " com a participação do professor Remco Van Der Wijngaart )</li>
+                    <li>Capacitação em Estilos de Apego, Big Five e o Teste Neo PI-R  ( Psilink  / IAHTC). Big  Five significa as cinco dimensões fundamentais da personalidade humana. 
+                        Trata-se de um modelo aceito e validado pela ciência para entender o comportamento.
+                    </li>
+                    <li>Imersão Sessões Transformadoras com base na Terapia do Esquema (Psilink / IAHTC, presencial em São Paulo).</li>
+                    <li>Terapia Cognitivo-Comportamental  - Processos e Técnicas ( EAD Diego Falco).</li>
                 </ul>
 
                 <span class="auth-quote">"Meu compromisso é oferecer um espaço ético, humano e seguro para você se entender e crescer, no seu tempo."</span>
@@ -2017,8 +2023,8 @@ body {
                 <div class="faq-answer">Sim. Tudo é protegido pelo sigilo profissional garantido pelo código de ética da psicologia.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Como é o pagamento? Atende por convênio?<span>+</span></div>
-                <div class="faq-answer">O pagamento é via PIX, até o dia 10 de cada mês. O atendimento é particular, sem convênio.</div>
+                <div class="faq-question">Atende por convênio médico?<span>+</span></div>
+                <div class="faq-answer">No momento somente pela modalidade particular. Mas é fornecido o documento necessário para o reembolso, caso solicite.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">E se eu precisar faltar a uma sessão? <span>+</span></div>
@@ -2035,13 +2041,21 @@ body {
 
     <!-- DOBRA 17: RODAPÉ -->
     <footer>
+        <div class="footer-profile-art" aria-hidden="true">
+            <img class="footer-portrait" src="img/ana-lucia-rodape.webp" alt="">
+        </div>
+        <div class="footer-divider" aria-hidden="true"></div>
         <span class="footer-logo">Ana Lúcia Seixas</span>
+        <div class="footer-credentials">
+            <span>Psicóloga Clínica</span>
+            <span>Terapia do Esquema | TCC</span>
+            <span>CRP 05/24657</span>
+        </div>
         <div class="footer-info">
-            <p>Psicóloga Clínica | Terapia do Esquema</p>
-            <p>CRP 05/24657</p>
-            <p>Atendimento particular, online e presencial no Rio de Janeiro</p>
-            <p>Contato: WhatsApp  +55 21 98119-6944</p>
-            <span>Rio de Janeiro, RJ - Brasil</span>
+            <p class="footer-heading">Contato</p>
+            <p class="footer-detail">Atendimento particular, online e presencial no Rio de Janeiro</p>
+            <p class="footer-detail">Contato: WhatsApp +55 21 98119-6944</p>
+            <span class="footer-detail">Rio de Janeiro, RJ - Brasil</span>
         </div>
         <p class="copyright">© 2026 Ana Lúcia Seixas. Todos os direitos reservados.| Realizado por RSS Digital</p>
        <!-- https://rssdigital.com.br/ -->
